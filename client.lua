@@ -48,8 +48,7 @@ end
 
 bindKey(CONFIG.bindKey, "down", function()
   local vehicle = getPedOccupiedVehicle(localPlayer)
-  if not vehicle then return end
-  return default and setDefault(vehicle) or setDrift(vehicle)
+  return (vehicle and default and setDefault(vehicle) or setDrift(vehicle))
 end)
 
 addEventHandler("onClientPlayerVehicleExit", getRootElement(), setDefault)
